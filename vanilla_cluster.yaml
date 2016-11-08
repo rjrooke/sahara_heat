@@ -1,0 +1,14 @@
+heat_template_version: 2016-10-14
+
+resources:
+  vanilla_cluster:
+    type: OS::Sahara::Cluster
+    properties:
+      cluster_template_id: 4693145f-4da7-4a85-b120-d373bcea04c6
+      default_image_id: d9c94c74-5aa0-4f01-be05-c0aa78a5f3fe
+      hadoop_version: 2.7.1
+      key_name: mykey
+      name: vanilla_hadoop_cluster
+      neutron_management_network: private
+      plugin_name: vanilla
+      use_autoconfig: True
