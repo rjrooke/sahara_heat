@@ -7,3 +7,4 @@ resources:
       description: Sahara Vanilla Hadoop Image
       image: d9c94c74-5aa0-4f01-be05-c0aa78a5f3fe
       tags: [ "vanilla", "2.7.1" ]
+      username: "admin"
