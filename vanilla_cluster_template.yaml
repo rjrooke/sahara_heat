@@ -1,0 +1,15 @@
+heat_template_version: 2016-10-14
+...
+resources:
+  ...
+  the_resource:
+    type: OS::Sahara::ClusterTemplate
+    properties:
+      default_image_id: d9c94c74-5aa0-4f01-be05-c0aa78a5f3fe
+      description: Vanilla hadoop cluster template
+      hadoop_version: 2.7.1
+      name: hadoop-cluster-template
+      neutron_management_network: private
+      node_groups: [{"master": String, "count": 1, "node_group_template_id": "c68146a1-f618-43c8-9cc7-962319e00a81"}, {"workers": String, "count": 3, "node_group_template_id": "a327fce6-c707-4d9b-81ee-2421f4acb40e"}]
+      plugin_name: vanilla
+      use_autoconfig: True
