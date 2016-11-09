@@ -9,6 +9,6 @@ resources:
       hadoop_version: 2.7.1
       name: hadoop-cluster-template
       neutron_management_network: private
-      node_groups: [{"name": "master", "count": 1, "node_group_template_id": "c68146a1-f618-43c8-9cc7-962319e00a81"}, {"name": "workers", "count": 3, "node_group_template_id": "a327fce6-c707-4d9b-81ee-2421f4acb40e"}]
+      node_groups: [{"name": "master", "count": 1, "node_group_template_id": "050a7318-b6f5-4971-b258-3172f52a237c"}, {"name": "workers", "count": 3, "node_group_template_id": "05767d42-1ba4-4cfc-a5de-2e03c6dccebc"}]
       plugin_name: vanilla
       use_autoconfig: True
