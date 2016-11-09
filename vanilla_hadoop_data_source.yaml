@@ -1,5 +1,11 @@
 heat_template_version: 2016-10-14
 
+parameters:
+  password:
+    type: string
+  user:
+    type: string
+
 resources:
   pig_tutorial_input:
     type: OS::Sahara::DataSource
@@ -8,6 +14,7 @@ resources:
       name: pig_tutorial_input
       type: swift
       url: pig_tutorial.sahara/excite.log.bz2
+      credentials: {"password": { get_param: password }, "user": { get_param: user } }
 
   pig_tutorial_output:
     type: OS::Sahara::DataSource
@@ -16,3 +23,4 @@ resources:
       name: pig_tutorial_output
       type: swift
       url: pig_tutorial.sahara/output
+      credentials: {"password": { get_param: password }, "user": { get_param: user } }
