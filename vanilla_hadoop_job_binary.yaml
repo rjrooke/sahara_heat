@@ -1,0 +1,17 @@
+heat_template_version: 2016-10-14
+
+resources:
+  pig_tutorial_script:
+    type: OS::Sahara::JobBinary
+    properties:
+      description: Tutorial script from PIG source code
+      name: pig_tutorial_script
+      url: swift://pig_tutorial/script1-hadoop-sahara.pig
+
+  pig_tutorial_library:
+    type: OS::Sahara::JobBinary
+    properties:
+      description: Library for tutorial script from PIG source code
+      name: tutorial.jar
+      url: swift://pig_tutorial/tutorial.jar
+

@@ -1,0 +1,18 @@
+heat_template_version: 2016-10-14
+
+resources:
+  pig_tutorial_input:
+    type: OS::Sahara::DataSource
+    properties:
+      description: Input data for PIG tutorial
+      name: pig_tutorial_input
+      type: swift
+      url: pig_tutorial.sahara/excite.log.bz2
+
+  pig_tutorial_output:
+    type: OS::Sahara::DataSource
+    properties:
+      description: Output location for PIG tutorial
+      name: pig_tutorial_output
+      type: swift
+      url: pig_tutorial.sahara/output
