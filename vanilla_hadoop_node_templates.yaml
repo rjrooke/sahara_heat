@@ -24,7 +24,7 @@ resources:
       auto_security_group: True
       availability_zone: nova
       description: Vanilla Hadoop worker node group template
-      flavor: m1.medium
+      flavor: m1.large
       floating_ip_pool: nova
       hadoop_version: 2.7.1
       image_id: d9c94c74-5aa0-4f01-be05-c0aa78a5f3fe
