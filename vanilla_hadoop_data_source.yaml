@@ -13,7 +13,7 @@ resources:
       description: Input data for PIG tutorial
       name: pig_tutorial_input
       type: swift
-      url: swift://pig_tutorial.sahara/excite.log.bz2
+      url: swift://pig-tutorial.sahara/excite.log.bz2
       credentials: {"password": { get_param: password }, "user": { get_param: user } }
 
   pig_tutorial_output:
@@ -22,5 +22,5 @@ resources:
       description: Output location for PIG tutorial
       name: pig_tutorial_output
       type: swift
-      url: swift://pig_tutorial.sahara/output
+      url: swift://pig-tutorial.sahara/output
       credentials: {"password": { get_param: password }, "user": { get_param: user } }

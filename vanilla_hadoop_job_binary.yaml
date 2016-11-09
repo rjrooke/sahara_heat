@@ -12,7 +12,7 @@ resources:
     properties:
       description: Tutorial script from PIG source code
       name: pig_tutorial_script
-      url: swift://pig_tutorial/script1-hadoop-sahara.pig
+      url: swift://pig-tutorial/script1-hadoop-sahara.pig
       credentials: {"password": { get_param: password }, "user": { get_param: user } }
 
   pig_tutorial_library:
@@ -20,6 +20,6 @@ resources:
     properties:
       description: Library for tutorial script from PIG source code
       name: tutorial.jar
-      url: swift://pig_tutorial/tutorial.jar
+      url: swift://pig-tutorial/tutorial.jar
       credentials: {"password": { get_param: password }, "user": { get_param: user } }
 
