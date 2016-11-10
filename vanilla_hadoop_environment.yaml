@@ -1,3 +1,4 @@
 
 parameter_defaults:
   image_id: d9c94c74-5aa0-4f01-be05-c0aa78a5f3fe
+  node_key_name: mykey

@@ -34,3 +34,8 @@ resources:
           node_group_template_id: { get_param: worker_node_template_id }
       plugin_name: vanilla
       use_autoconfig: True
+
+outputs:
+  template_id:
+    description: UUID for cluster template
+    value: { get_attr: [ vanilla_cluster_template, show, id ] }

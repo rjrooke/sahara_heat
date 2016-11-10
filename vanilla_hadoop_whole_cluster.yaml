@@ -14,5 +14,11 @@ resources:
     depends_on: node_resource_templates
     type: vanilla_cluster_template.yaml
     properties:
-      master_node_template_id: { get_attr: [ node_resource_templates, master_node_id ] }
-      worker_node_template_id: { get_attr: [ node_resource_templates, worker_node_id ] }
+      master_node_template_id: { get_attr: [ node_resource_templates, master_id ] }
+      worker_node_template_id: { get_attr: [ node_resource_templates, worker_id ] }
+
+  vanilla_cluster:
+    depends_on: cluster_temlate
+    type: vanilla_cluster.yaml
+    properties:
+      cluster_template_id: { get_attr: [ cluster_template, template_id ] }

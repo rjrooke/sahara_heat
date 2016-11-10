@@ -10,7 +10,6 @@ parameters:
     label: Cluster template ID
     type: string
     description: UUID for cluster template
-    default: d3eea94f-5ec7-42cf-a367-e4dc5571320b
   node_key_name:
     label: node_key_name
     type: string
