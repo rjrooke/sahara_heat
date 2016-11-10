@@ -1,0 +1,16 @@
+heat_template_version: 2016-10-14
+
+parameters:
+
+resources:
+  register_image:
+    type: vanilla_hadoop_image.yaml
+
+  node_resource_templates:
+    type: vanilla_hadoop_node_templates.yaml
+
+  cluster_template:
+    type: vanilla_cluster_template.yaml
+    properties:
+      master_node_template_id: { get_attr: node_resource_templates, master_node_template_id }
+      worker_node_template_id: { get_attr: node_resource_templates, worker_node_template_id }

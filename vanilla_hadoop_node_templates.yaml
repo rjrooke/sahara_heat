@@ -40,3 +40,8 @@ resources:
       plugin_name: "vanilla"
       security_groups: ["default"]
       use_autoconfig: True
+
+outputs:
+  master_node_template_id: { get_resource: vanilla_hadoop_master_node }
+
+  worker_node_template_id: { get_resource: vanilla_hadoop_worker_node }
