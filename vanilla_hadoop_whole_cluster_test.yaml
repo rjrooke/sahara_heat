@@ -12,4 +12,6 @@ resources:
 
 outputs:
   node_resource_master_id:
-    value: { get_attr: [ node_resource_templates ] }
+    value: { get_attr: [ node_resource_templates, master_node_template_id ] }
+  node_resource_worker_id:
+    value: { get_attr: [ node_resource_templates, worker_node_template_id ] }
