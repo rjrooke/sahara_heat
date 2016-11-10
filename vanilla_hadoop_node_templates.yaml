@@ -43,7 +43,7 @@ resources:
 
 outputs:
   master_node_template_id:
-    value: { get_attr: [ vanilla_hadoop_master_node, id ] }
+    value: { get_resource: [ vanilla_hadoop_master_node, id ] }
 
   worker_node_template_id:
-    value: { get_attr: [ vanilla_hadoop_worker_node, id ] }
+    value: { get_resource: [ vanilla_hadoop_worker_node, id ] }
