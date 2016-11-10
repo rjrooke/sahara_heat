@@ -29,6 +29,7 @@ resources:
 
   vanilla_image:
     type: OS::Sahara::ImageRegistry
+    depends_on: glance_image
     properties:
       description: Sahara Vanilla Hadoop Image
       image: { get_resource: glance_image }
