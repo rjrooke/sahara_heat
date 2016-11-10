@@ -9,6 +9,8 @@ resources:
   node_resource_templates:
     depends_on: register_image
     type: vanilla_hadoop_node_templates.yaml
+    properties:
+      image_id: { get_attr: [ register_image, glance_image_id ] }
 
   cluster_template:
     depends_on: node_resource_templates
@@ -16,9 +18,11 @@ resources:
     properties:
       master_node_template_id: { get_attr: [ node_resource_templates, master_id ] }
       worker_node_template_id: { get_attr: [ node_resource_templates, worker_id ] }
+      image_id: { get_attr: [ register_image, glance_image_id ] }
 
   vanilla_cluster:
     depends_on: cluster_template
     type: vanilla_cluster.yaml
     properties:
       cluster_template_id: { get_attr: [ cluster_template, template_id ] }
+      image_id: { get_attr: [ register_image, glance_image_id ] }

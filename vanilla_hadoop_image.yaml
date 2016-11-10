@@ -18,10 +18,24 @@ parameters:
     default: [ "vanilla", "2.7.1" ]
 
 resources:
+  glance_image:
+    type: OS::Glance::Image
+    properties:
+      container_format: bare
+      disk_format: qcow2
+      is_public: true
+      location: http://sahara-files.mirantis.com/images/upstream/newton/sahara-newton-vanilla-2.7.1-centos7.qcow2
+      name: vanilla-hadoop-2.7.1
+
   vanilla_image:
     type: OS::Sahara::ImageRegistry
     properties:
       description: Sahara Vanilla Hadoop Image
-      image: { get_param: image_id }
+      image: { get_resource: glance_image }
       tags: { get_param: image_tags }
       username: { get_param: admin_id }
+
+outputs:
+  glance_image_id:
+    description: Image ID for image downloaded to glance
+    value: { get_attr: [ glance_image, show, id ]}
