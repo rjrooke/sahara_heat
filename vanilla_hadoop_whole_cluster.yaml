@@ -14,5 +14,5 @@ resources:
     depends_on: node_resource_templates
     type: vanilla_cluster_template.yaml
     properties:
-      master_node_template_id: { get_attr: [ node_resource_templates, vanilla_hadoop_master_node, show, id, 0 ] }
-      worker_node_template_id: { get_attr: [ node_resource_templates, vanilla_hadoop_worker_node, show, id, 0 ] }
+      master_node_template_id: { get_attr: [ node_resource_templates, master_node_template_id ] }
+      worker_node_template_id: { get_attr: [ node_resource_templates, worker_node_template_id ] }
