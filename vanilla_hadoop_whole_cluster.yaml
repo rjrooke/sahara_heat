@@ -7,9 +7,11 @@ resources:
     type: vanilla_hadoop_image.yaml
 
   node_resource_templates:
+    depends_on: register_image
     type: vanilla_hadoop_node_templates.yaml
 
   cluster_template:
+    depends_on: node_resource_templates
     type: vanilla_cluster_template.yaml
     properties:
       master_node_template_id: { get_attr: [ node_resource_templates, master_node_template_id, 0 ] }
