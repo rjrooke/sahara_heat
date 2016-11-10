@@ -43,6 +43,7 @@ resources:
 
 outputs:
   master_node_template_id:
+    description: UUID for master node template
     value: { get_attr: [ { get_resource: vanilla_hadoop_master_node } ] }
 
   worker_node_template_id:
