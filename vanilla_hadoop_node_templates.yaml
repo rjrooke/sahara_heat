@@ -1,5 +1,12 @@
 heat_template_version: 2016-10-14
 
+parameters:
+  image_id:
+    label: Image ID
+    type: string
+    description: Glance image ID to register in Sahara
+    default: d9c94c74-5aa0-4f01-be05-c0aa78a5f3fe
+
 resources:
   vanilla_hadoop_master_node:
     type: OS::Sahara::NodeGroupTemplate
@@ -10,7 +17,7 @@ resources:
       flavor: m1.medium
       floating_ip_pool: nova
       hadoop_version: 2.7.1
-      image_id: d9c94c74-5aa0-4f01-be05-c0aa78a5f3fe
+      image_id: { get_param: image_id }
       is_proxy_gateway: False
       name: Hadoop-Master-Node
       node_processes: ["namenode", "secondarynamenode", "resourcemanager", "historyserver", "oozie"]
@@ -27,7 +34,7 @@ resources:
       flavor: m1.large
       floating_ip_pool: nova
       hadoop_version: 2.7.1
-      image_id: d9c94c74-5aa0-4f01-be05-c0aa78a5f3fe
+      image_id: { get_param: image_id }
       is_proxy_gateway: False
       name: Hadoop-Worker-Node
       node_processes: ["nodemanager", "datanode"]
