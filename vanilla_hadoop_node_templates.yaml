@@ -42,10 +42,10 @@ resources:
       use_autoconfig: True
 
 outputs:
-  master_node_template_id:
+  master_node_id:
     description: UUID for master node template
     value: { get_attr: [ vanilla_hadoop_master_node, show, id ] }
 
-  worker_node_template_id:
+  worker_node_id:
     description: UUID for worker node template
     value: { get_attr: [ vanilla_hadoop_worker_node, show, id ] }
