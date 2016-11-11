@@ -1,22 +1,12 @@
 #HEAT templates to build Sahara vanilla Hadoop cluster
 
-Download image from: http://sahara-files.mirantis.com/images/upstream/newton/sahara-newton-vanilla-2.7.1-centos7.qcow2
-
-Import pre-built Sahara image into Glance
-```
-glance image-create --name sahara-vanilla-2.7.1-centos7 \
-    --disk-format qcow2 \
-    --container-format bare \
-    --is-public true \
-    --progress \
-    --file sahara-newton-vanilla-2.7.1-centos7.qcow2 
-```
 
 Create individual stacks for each component (requires parameter updates for each stack based on dependencies)
 ```
-openstack stack create -t sahara_vanilla_hadoop_image.yaml register_vanilla_image --parameter image_id=<IMAGE_ID>
+openstack stack create -t sahara_vanilla_hadoop_image.yaml register_vanilla_image \
+--parameter image_url=http://sahara-files.mirantis.com/images/upstream/newton/sahara-newton-vanilla-2.7.1-centos7.qcow2
  
-openstack stack create -t vanilla_hadoop_node_templates.yaml vanilla_node_templates
+openstack stack create -t vanilla_hadoop_node_templates.yaml vanilla_node_templates --parameter image_id=<IMAGE_ID>
  
 # Get node template ids to use in cluster template stack
 openstack dataprocessing node group template list
@@ -33,5 +23,14 @@ openstack stack create -t vanilla_cluster.yaml vanilla_cluster
 
 All-in-one cluster template (Update environment file)
 ```
+cat vanilla_hadoop_environment.yaml
+ 
+parameter_defaults:
+  node_key_name: mykey
+  image_url: http://sahara-files.mirantis.com/images/upstream/newton/sahara-newton-vanilla-2.7.1-centos7.qcow2
+  image_name: vanilla-hadoop-2.7.1
+  admin_id: centos
+  image_tags: [ "vanilla", "2.7.1" ]
+  
 openstack stack create -t vanilla_hadoop_whole_cluster.yaml -e vanilla_hadoop_environment.yaml vanilla_hadoop_cluster
 ```
