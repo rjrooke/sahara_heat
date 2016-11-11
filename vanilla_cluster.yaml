@@ -1,11 +1,6 @@
 heat_template_version: 2016-10-14
 
 parameters:
-  image_id:
-    label: Image ID
-    type: string
-    description: Glance image ID to register in Sahara
-    default: d9c94c74-5aa0-4f01-be05-c0aa78a5f3fe
   cluster_template_id:
     label: Cluster template ID
     type: string
@@ -21,7 +16,6 @@ resources:
     type: OS::Sahara::Cluster
     properties:
       cluster_template_id: { get_param: cluster_template_id }
-      default_image_id: { get_param: image_id }
       hadoop_version: 2.7.1
       key_name: { get_param: node_key_name }
       name: Hadoop-Cluster
