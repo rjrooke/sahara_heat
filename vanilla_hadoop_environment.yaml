@@ -5,3 +5,7 @@ parameter_defaults:
   image_name: vanilla-hadoop-2.7.1
   admin_id: centos
   image_tags: [ "vanilla", "2.7.1" ]
+  master_node_count: 1
+  worker_node_count: 3
+  master_node_flavor: m1.medium
+  worker_node_flavor: m1.large

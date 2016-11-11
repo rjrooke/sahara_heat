@@ -5,6 +5,16 @@ parameters:
     label: Image ID
     type: string
     description: Glance image ID
+  master_node_flavor:
+    label: Master Node Flavor
+    type: string
+    description: Nova flavor for master nodes
+    default: m1.medium
+  worker_node_flavor:
+    label: Worker Node Flavor
+    type: string
+    decsription: Nova flavor for worker nodes
+    default: m1.large
 
 resources:
   vanilla_hadoop_master_node:
@@ -13,7 +23,7 @@ resources:
       auto_security_group: True
       availability_zone: nova
       description: Vanilla Hadoop master node group template
-      flavor: m1.medium
+      flavor: { get_param: master_node_flavor }
       floating_ip_pool: nova
       hadoop_version: 2.7.1
       image_id: { get_param: image_id }
@@ -30,7 +40,7 @@ resources:
       auto_security_group: True
       availability_zone: nova
       description: Vanilla Hadoop worker node group template
-      flavor: m1.large
+      flavor: { get_param: worker_node_flavor }
       floating_ip_pool: nova
       hadoop_version: 2.7.1
       image_id: { get_param: image_id }
