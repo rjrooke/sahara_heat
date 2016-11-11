@@ -4,7 +4,7 @@ parameters:
   image_id:
     label: Image ID
     type: string
-    description: Glance image ID to register in Sahara
+    description: Glance image ID
   master_node_template_id:
     label: Master node template ID
     type: string
