@@ -1,3 +1,7 @@
 
 parameter_defaults:
   node_key_name: mykey
+  image_url: http://sahara-files.mirantis.com/images/upstream/newton/sahara-newton-vanilla-2.7.1-centos7.qcow2
+  image_name: vanilla-hadoop-2.7.1
+  admin_id: centos
+  image_tags: [ "vanilla", "2.7.1" ]
